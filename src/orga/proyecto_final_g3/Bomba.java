@@ -26,14 +26,17 @@ public class Bomba extends Thread {
     Personaje personaje = null;
     JPanel panel = null;
     JLabel v1, v2, v3;
-
-    public Bomba(JLabel[][] lbl_bbman, ArrayList<Personaje> bloques, JPanel panel,
+    ArrayList<Enemigo> enemigos;
+    
+    
+    public Bomba(JLabel[][] lbl_bbman, ArrayList<Personaje> bloques, ArrayList<Enemigo> enemigos, JPanel panel,
             Personaje personaje, int x, int y, JLabel v1, JLabel v2, JLabel v3) {
         
         this.lbl_bbman = lbl_bbman;
         this.bloques = bloques;
         this.panel = panel;
         this.personaje = personaje;
+        this.enemigos = enemigos;
         bomba = new Personaje(x, y);
         this.v1 = v1;
         this.v2 = v2;
@@ -82,6 +85,15 @@ public class Bomba extends Thread {
 
         if (bomba.getX() == personaje.getX() && bomba.getY() == personaje.getY()) {
             quitar_vida();
+        }
+        for (int i = 0; i < enemigos.size(); i++) {
+            if(enemigos.get(i) != null){
+                if(enemigos.get(i).getEnemigo().getX() == bomba.getX() && 
+                        enemigos.get(i).getEnemigo().getY() == bomba.getY()){
+                    enemigos.get(i).stop();
+                    enemigos.remove(i);
+                }
+            }
         }
         lbl_bbman[bomba.getX()][bomba.getY()].setIcon(null);
         lbl_bbman[bomba.getX()][bomba.getY()].setName(null);

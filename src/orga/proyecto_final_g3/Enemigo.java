@@ -76,4 +76,36 @@ public class Enemigo extends Thread {
         //To change body of generated methods, choose Tools | Templates.
     }
 
+    public JLabel[][] getLbl_bbman() {
+        return lbl_bbman;
+    }
+
+    public void setLbl_bbman(JLabel[][] lbl_bbman) {
+        this.lbl_bbman = lbl_bbman;
+    }
+
+    public JPanel getPanel() {
+        return panel;
+    }
+
+    public void setPanel(JPanel panel) {
+        this.panel = panel;
+    }
+
+    public ArrayList<Personaje> getBloques() {
+        return bloques;
+    }
+
+    public void setBloques(ArrayList<Personaje> bloques) {
+        this.bloques = bloques;
+    }
+
+    public Personaje getEnemigo() {
+        return enemigo;
+    }
+
+    public void setEnemigo(Personaje enemigo) {
+        this.enemigo = enemigo;
+    }
+    
 }

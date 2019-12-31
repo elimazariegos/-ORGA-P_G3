@@ -32,7 +32,7 @@ public class PrincipalBBMAN extends javax.swing.JFrame {
 
     Personaje bomba = null;
     ArrayList<Personaje> bloques = new ArrayList<>();
-    Personaje[] enemigos = new Personaje[5];
+    ArrayList<Enemigo> enemigos = new ArrayList();
 
     JLabel[][] lbl_bbman = new JLabel[12][12];
     int[][] logic_bbman = new int[12][12];
@@ -40,7 +40,7 @@ public class PrincipalBBMAN extends javax.swing.JFrame {
     ImageIcon img_personaje = new ImageIcon(getClass().getResource("/img/quieto.gif"));
     ImageIcon img_vida = new ImageIcon(getClass().getResource("/img/vida.png"));
 
-    int numero_bloques = 40;
+    int numero_bloques = 50;
 
     public PrincipalBBMAN() {
         initComponents();
@@ -51,6 +51,7 @@ public class PrincipalBBMAN extends javax.swing.JFrame {
         v3.setIcon(fd_bomba);
 
         for (int i = 0; i < numero_bloques; i++) {
+
             int random_x = (int) (Math.random() * 12) + 1;
             int random_y = (int) (Math.random() * 12) + 1;
 
@@ -64,6 +65,7 @@ public class PrincipalBBMAN extends javax.swing.JFrame {
         for (int i = 1; i < 10; i++) {
             Enemigo ene = new Enemigo(lbl_bbman, panel, bloques, i, i);
             ene.start();
+            enemigos.add(ene);
         }
         Salida_Binaria bin = new Salida_Binaria(lbl_bbman);
         bin.start();
@@ -106,7 +108,7 @@ public class PrincipalBBMAN extends javax.swing.JFrame {
     }
 
     public void poner_bomba() throws InterruptedException {
-        Bomba bomba = new Bomba(lbl_bbman, bloques, panel, personaje, personaje.getX(), personaje.getY(),v1,v2,v3);
+        Bomba bomba = new Bomba(lbl_bbman, bloques, enemigos,panel, personaje, personaje.getX(), personaje.getY(), v1, v2, v3);
         bomba.start();
     }
 
