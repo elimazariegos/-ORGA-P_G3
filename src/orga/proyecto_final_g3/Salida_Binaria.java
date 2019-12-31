@@ -37,7 +37,7 @@ public class Salida_Binaria extends Thread {
             }
 
             for (int i = 0; i < 12; i++) {
-                for (int j = 0; j < 12; j++) {
+                for (int j = 11; j >= 0; j--) {
                     System.out.print(binaria[i][j]);
                 }
                 System.out.println("");

@@ -37,7 +37,7 @@ public class PrincipalBBMAN extends javax.swing.JFrame {
     JLabel[][] lbl_bbman = new JLabel[12][12];
     int[][] logic_bbman = new int[12][12];
     ImageIcon img_bloque = new ImageIcon(getClass().getResource("/img/bloque.png"));
-    ImageIcon img_personaje = new ImageIcon(getClass().getResource("/img/personaje.png"));
+    ImageIcon img_personaje = new ImageIcon(getClass().getResource("/img/quieto.gif"));
     ImageIcon img_vida = new ImageIcon(getClass().getResource("/img/vida.png"));
 
     int numero_bloques = 40;
@@ -88,16 +88,6 @@ public class PrincipalBBMAN extends javax.swing.JFrame {
                 } else {
                     logic_bbman[i][j] = 0;
                 }
-                if (bomba != null) {
-                    if (j == bomba.getY() && i == bomba.getX()) {
-                        ImageIcon img_bomba = new ImageIcon(getClass().getResource("/img/bomba.gif"));
-                        Icon fd_bomba = new ImageIcon(img_bomba.getImage().getScaledInstance(lbl_pos.getWidth(),
-                                lbl_pos.getHeight(), Image.SCALE_DEFAULT));
-                        lbl_pos.setIcon(fd_bomba);
-
-                    }
-                }
-
                 for (int k = 0; k < bloques.size(); k++) {
                     if (j == bloques.get(k).getY() && i == bloques.get(k).getX()) {
                         logic_bbman[i][j] = 1;

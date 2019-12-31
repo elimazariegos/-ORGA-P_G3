@@ -65,7 +65,7 @@ public class Enemigo extends Thread {
                     lbl_bbman[enemigo.getX()][enemigo.getY()].getHeight(), Image.SCALE_DEFAULT));
             lbl_bbman[enemigo.getX()][enemigo.getY()].setIcon(fd_bomba);
             try {
-                sleep(1000);
+                sleep(800);
             } catch (InterruptedException ex) {
                 Logger.getLogger(Enemigo.class.getName()).log(Level.SEVERE, null, ex);
             }

@@ -33,7 +33,7 @@ public class Movimiento extends Thread {
 
     @Override
     public void run() {
-        ImageIcon img_personaje = new ImageIcon(getClass().getResource("/img/personaje.png"));
+        ImageIcon img_personaje = new ImageIcon(getClass().getResource("/img/quieto.gif"));
         Icon fd_personaje = new ImageIcon(img_personaje.getImage().getScaledInstance(lbl_bbman[personaje.getX()][personaje.getY()].getWidth(),
                 lbl_bbman[personaje.getX()][personaje.getY()].getHeight(), Image.SCALE_DEFAULT));
 
